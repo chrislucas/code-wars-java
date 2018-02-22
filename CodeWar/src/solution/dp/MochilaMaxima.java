@@ -94,15 +94,31 @@ public class MochilaMaxima {
         int memo [][] = new int[l+1][capacity+1];
         for(int i=0; i<capacity+1; i++)
             memo[0][i] = 0;
-        for (int qObjects = 1; qObjects<=l ; qObjects++) {
-            for (int weight=1; weight <=capacity; weight++) {
-                if(weights[qObjects-1] <= weight) {
-                    int cow = weight-weights[qObjects-1];
-                    int o = values[qObjects-1] + memo[qObjects-1][cow];
-                    memo[qObjects][weight] = o > memo[qObjects-1][weight] ? o : memo[qObjects-1][weight];
+        /**
+         * instancia do problema com 1 objeto ate ter os n objetos completando o
+         * problema
+         * */
+        for (int i=1; i<=l ; i++) {
+            /**
+             * variando a capacidade da mochila de 1 ate capacity
+             * */
+            for (int cc=1; cc <=capacity; cc++) {
+                int iobj = i-1;
+                // Peso o i-esimo objeto
+                int wi = weights[iobj];
+                if(wi <= cc) {
+                    // capacidade restante da mochila: capacidade atual - o peso do objeto que foi escolhido
+                    int ci = cc-wi;
+                    // values[i-1] valor do i-esimo objeto + valor do (i-1)-esimo objeto ou o objeto
+                    // do subproblema anterior
+                    int vi = values[iobj] + memo[iobj][ci];
+                    // valor do i-esimo objeto == memo[i][currCapacity]
+                    // Max(valor do i-esimo objeto + (i-1)-esimo, (i-1)-esimo)
+                    //
+                    memo[i][cc] = vi > memo[iobj][cc] ? vi : memo[iobj][cc];
                 }
                 else {
-                    memo[qObjects][weight] = memo[qObjects-1][weight];
+                    memo[i][cc] = memo[iobj][cc];
                 }
             }
         }
@@ -110,16 +126,18 @@ public class MochilaMaxima {
     }
 
     private static void testTopDown1() {
-        int [] cap = {3, 50};
+        int [] cap = {3, 50, 11};
         int [][] weights = {
             {3,1,2}
             ,{10,20,30}
+            ,{1,2,5,6,7}
         }
         , values = {
              {5,3,3}
             ,{60,100,120}
+            ,{1,6,18,22,28}
         };
-        int idx = 0;
+        int idx = 2;
         //System.out.println(solverTopDown(cap, weights, values, 2));
         boolean [] objects = new boolean[weights[idx].length];
         System.out.println(solverTopDown(cap[idx], weights[idx], values[idx], objects,2));
@@ -131,16 +149,19 @@ public class MochilaMaxima {
     }
 
     private static void testBottomUp1() {
-        int [] cap = {3, 50};
+        int [] cap = {3, 50, 11};
         int [][] weights = {
              {3,1,2}
             ,{10,20,30}
+            ,{1,2,5,6,7}
         }
         , values = {
-            {5,3,3}
+             {5,3,3}
             ,{60,100,120}
+            ,{1,6,18,22,28}
         };
-        int idx = 0;
+        //System.out.prin
+        int idx = 2;
         boolean [] objects = new boolean[weights[idx].length];
         System.out.println(solverBottomUpV2(cap[idx], weights[idx], values[idx], objects));
         for(int i=0; i<objects.length; i++) {
