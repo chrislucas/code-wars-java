@@ -1,0 +1,14 @@
+https://www.codewars.com/kata/538ae2eb7a4ba8c99b000439/train/java?collection=regex-5
+https://www.codewars.com/kata/search/java?q=regex&xids=played&beta=false
+
+https://www.codewars.com/kata/evil-autocorrect-prank
+https://www.codewars.com/kata/regex-validate-pin-code/discuss/javascript
+https://www.codewars.com/kata/validdate-regex/train/javascript
+
+https://www.codewars.com/kata/regex-validate-pin-code
+https://www.codewars.com/kata/regex-password-validation
+https://www.codewars.com/kata/regex-for-gregorian-date-validation
+
+https://www.codewars.com/kata/regex-validation-of-24-hours-time
+
+https://www.codewars.com/kata/convert-string-to-camel-case

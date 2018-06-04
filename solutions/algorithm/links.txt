@@ -1,0 +1,3 @@
+https://www.codewars.com/kata/validate-credit-card-number
+https://www.codewars.com/trainer/java
+https://www.codewars.com/kata/simple-assembler-interpreter/train/java
