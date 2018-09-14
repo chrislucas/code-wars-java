@@ -1,1 +1,2 @@
 http://www.codewars.com/kata/screen-locking-patterns?utm_source=newsletter
+http://www.codewars.com/kata/areas-of-voronoi-cells?utm_source=newsletter
